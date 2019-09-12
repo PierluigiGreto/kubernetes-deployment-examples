@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: redis-publisher-deployment
+  name: redis-publisher-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-publisher-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis-publisher-deployment
+    spec:
+      containers:
+      - image: pierluigigreto/redis-publisher
+        name: redis-publisher
+        resources: {}
+status: {}

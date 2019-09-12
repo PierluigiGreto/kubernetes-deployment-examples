@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: redis-subscriber-deployment
+  name: redis-subscriber-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-subscriber-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: redis-subscriber-deployment
+    spec:
+      containers:
+      - image: pierluigigreto/redis-subscriber
+        name: redis-subscriber
+        resources: {}
+status: {}

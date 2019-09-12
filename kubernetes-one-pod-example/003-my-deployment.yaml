@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-deployment
+  name: my-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-deployment
+    spec:
+      containers:
+      - image: pierluigigreto/simpleserver
+        name: simpleserver
+        resources: {}
+        volumeMounts:
+        - name: server-config-volume
+          mountPath: /etc/config/config.json
+          subPath: config.json
+      - image: pierluigigreto/accel-pppd
+        name: accel-pppd
+        resources: {}
+        volumeMounts:
+        - name : accel-pppd-volume
+          mountPath: /etc/accel-ppp.conf
+          subPath: accel-ppp.conf
+      volumes:
+      - name: server-config-volume
+        configMap:
+          name: server-config
+      - name: accel-pppd-volume
+        configMap:
+          name: accel-ppp-config
+
+status: {}

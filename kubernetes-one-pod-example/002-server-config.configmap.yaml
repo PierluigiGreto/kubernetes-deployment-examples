@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: server-config
+data:
+  config.json: "{ \n    \"READ\": \"config file not actually used by the simpleserver
+    (just an example)\",\n    \"development\": {\n        \"config_id\": \"development\",\n
+    \       \"app_name\": \"my app\",\n        \"app_desc\": \"my app desc\",\n        \"node_port\":
+    3000,\n        \"json_indentation\": 4,\n        \"database\": \"my-app-db-dev\"\n
+    \   },\n    \"testing\": {\n        \"config_id\": \"testing\",\n        \"database\":
+    \"my-app-db-test\"\n    },\n    \"staging\": {\n        \"config_id\": \"staging\",\n
+    \       \"node_port\": 8080,\n        \"database\": \"my-app-db-stag\"\n    },\n
+    \   \"production\": {\n        \"config_id\": \"production\",\n        \"node_port\":
+    8080,\n        \"database\": \"my-app-db-prod\"\n    }\n}\n"
